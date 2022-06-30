@@ -5,6 +5,7 @@ import com.blz.profile.dto.Contacts;
 import com.blz.profile.utils.Inputs;
 
 public class AddressBookServiceProvider implements AddressBookService {
+    Contacts contacts = new Contacts();
     @Override
     public Contacts addPersonDetail() {
         Contacts contacts = addDetail();
@@ -14,6 +15,12 @@ public class AddressBookServiceProvider implements AddressBookService {
     @Override
     public Contacts editPersonDetail() {
         Contacts contacts = editDetail();
+        return contacts;
+    }
+
+    @Override
+    public Contacts deletePersonDetails() {
+        Contacts contacts = removePerson();
         return contacts;
     }
 
@@ -41,7 +48,7 @@ public class AddressBookServiceProvider implements AddressBookService {
     private Contacts editDetail(){
             System.out.println("Enter a name you want to edit...");
             String editName = Inputs.getStringValue();
-            Contacts contacts = new Contacts();
+            //Contacts contacts = new Contacts();
             boolean found = false;
                 if (contacts.getFirstName().equals(editName)) {
                     found = true;
@@ -106,6 +113,24 @@ public class AddressBookServiceProvider implements AddressBookService {
             else
                 System.out.println("Name not found");
         return contacts;
+    }
+    private Contacts removePerson() {
+
+        System.out.println("Enter a name you want to delete...");
+        String removeName = Inputs.getStringValue();
+
+        boolean found = false;
+
+            if (contacts.getFirstName().equals(removeName)) {
+                found = true;
+                contacts.equals(removeName);
+            }
+
+        if (found)
+            System.out.println("SUCCESSFUL");
+        else
+            System.out.println("Name not found");
+return contacts;
     }
 
 }
