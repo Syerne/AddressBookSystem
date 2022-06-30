@@ -20,6 +20,8 @@ public class EmpAddressBook {
             case 1:
                 System.out.println("welcome to the Person Details : " + callMethod.addPersonDetail());
                 break;
+            case 2:
+                System.out.println("Welcome to the Edit Person Detail " + callMethod.editPersonDetail());
             default:
                 System.out.println("Enter Vaild Input");
                 break;
@@ -30,7 +32,7 @@ public class EmpAddressBook {
         System.out.println("Welcome to Bridge Employee Address Book");
     }
     public static int menuCard(){
-        System.out.println("1.AddPersonDetail");
+        System.out.println("1.AddPersonDetail\n2.editPersonDetail");
         System.out.println("Enter choice from menuCard");
         return Inputs.getIntValue();
     }
